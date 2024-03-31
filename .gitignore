@@ -1,0 +1,16 @@
+*.pyc
+.vscode/
+__pycache__/
+.DS_Store
+.env
+.pytest_cache/
+db.sqlite
+.dev-logs/
+db.sql
+.idea/
+.venv
+app.egg-info
+.mypy_cache
+.coverage
+htmlcov
+.cache
