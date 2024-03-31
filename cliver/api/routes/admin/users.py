@@ -3,8 +3,6 @@ Users Administration APIs
 """
 import logging
 
-from typing import Annotated
-
 from fastapi import APIRouter, Depends
 
 from cliver.models import User

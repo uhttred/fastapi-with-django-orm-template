@@ -18,7 +18,7 @@ app = typer.Typer(
 
 @app.command()
 def createsupermanager(username: str, email: str, password: str):
-    """"Creates a new supermanager for global ziett administration"""
+    """"Creates a new supermanager for global cliver administration"""
     
     user = User.query.create(  # type: ignore
         username=username,

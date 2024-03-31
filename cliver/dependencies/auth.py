@@ -13,9 +13,11 @@ from cliver.models import User
 
 async def is_authenticated(request: Request) -> DecodedJWTPayload:
     if token := request.headers.get('Authorization'):
-        token = token.split(' ')[1]
         try:
-            payload: DecodedJWTPayload = validate_jwt(token)
+            scheme, credentials = token.split()
+            if scheme.lower() != 'bearer':
+                raise HTTPException(status.HTTP_400_BAD_REQUEST, 'Ivalid authorization token')
+            payload: DecodedJWTPayload = validate_jwt(credentials)
         except ExpiredSignatureError:
             raise HTTPException(status.HTTP_401_UNAUTHORIZED, 'Provided authorization token has expired')
         except JWTError:
